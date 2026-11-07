@@ -1,12 +1,15 @@
 # Dispatch — scheduling simulator
 
-Local web UI powered by the Python scheduling engine. No packages to install.
+A CPU scheduling simulator with a browser demo and a Python scheduling engine.
 
-## Run
+## Browser demo
 
-With Python 3 installed, run `python server.py` from this folder and open
-[the simulator](http://127.0.0.1:8000). On Windows, you can also double-click
-`start_ui.bat`. Keep the terminal running and stop the server with Ctrl+C.
+[Open Dispatch](https://bigbubbatx.github.io/dispatch-scheduler/). The demo runs
+all four algorithms in your browser.
+
+To run the demo from a local copy, open `docs/index.html`. You can also run
+`python server.py` and open [localhost](http://127.0.0.1:8000). On Windows,
+`start_ui.bat` launches that development server.
 
 ## Use
 

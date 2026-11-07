@@ -1,7 +1,7 @@
 const $ = id => document.getElementById(id);
 const palette = ['#a4bb62','#6eaaa3','#c5a5ce','#d5a16d','#8da6cc','#d18f93','#9cad8d','#b8ae64'];
 const color = pid => palette[(pid - 1) % palette.length];
-const session = crypto.randomUUID();
+let simulation;
 let state = null, playing = false, timer = null, busy = false;
 let rows = [{arrival:0,burst:5},{arrival:2,burst:3},{arrival:10,burst:2}];
 let loaded = null;
@@ -20,10 +20,10 @@ function showError(error) {
 }
 
 async function request(path, data = {}) {
-  const response = await fetch('/api/' + path, {method:'POST', headers:{'Content-Type':'application/json','X-Simulation':session}, body:JSON.stringify(data)});
-  const result = await response.json();
-  if (!response.ok) throw new Error(result.error || 'Request failed');
-  return result;
+  if (path === 'reset') simulation = new Simulation(data);
+  else if (path === 'tick') simulation.tick();
+  else if (path === 'add') simulation.add(data);
+  return simulation.snapshot();
 }
 
 function editor() {

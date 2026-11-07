@@ -6,7 +6,7 @@ from pathlib import Path
 from process import Process
 from scheduler import FIFO, RoundRobin, ShortestJobFirst, ShortestRemainingTimeFirst
 
-WEB = Path(__file__).parent / "web"
+WEB = Path(__file__).parent / "docs"
 sessions = {}
 lock = threading.Lock()
 SCHEDULERS = {
