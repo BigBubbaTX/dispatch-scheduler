@@ -1,27 +1,24 @@
 # Dispatch — scheduling simulator
 
-A CPU scheduling simulator with a browser demo and a Python scheduling engine.
+A CPU scheduling simulator that shows how four algorithms decide which process runs next.
 
-## Browser demo
+**[Launch the live simulator](https://bigbubbatx.github.io/dispatch-scheduler/)**. It runs directly in your browser, with no download or Python installation required.
 
-[Open Dispatch](https://bigbubbatx.github.io/dispatch-scheduler/). The demo runs
-all four algorithms in your browser.
+## How to use
 
-To run the demo from a local copy, open `docs/index.html`. You can also run
-`python server.py` and open [localhost](http://127.0.0.1:8000). On Windows,
-`start_ui.bat` launches that development server.
+1. Choose a scheduling algorithm. For Round Robin, set the time quantum, which is the maximum number of ticks a process can run per turn.
+2. Edit the sample processes or click **Generate** to create a workload. **Arrival** is the tick when a process enters the simulation, and **Burst** is the total number of CPU ticks it needs.
+3. Click **Load workload** to apply your changes. Click **Step** to advance one tick or **Play** to watch the simulation run. The speed control changes playback pacing.
+4. Watch the ready queue, CPU, and timeline to see which process runs next. The metrics show CPU utilization and average waiting and turnaround times for completed processes.
 
-## Use
+Use **Inject process** to add a process at the current tick, even after the workload finishes. Use **Reset** to replay the last loaded workload without the injected processes. To compare algorithms, select a different one and click **Load workload** again with the same process inputs.
 
-Choose a scheduler, edit arrivals and CPU bursts, then click **Load workload**.
-Use **Step** for one tick or **Play** for timed playback. Playback speed changes
-animation pacing, never scheduling results. Configuration edits apply only when loaded.
-**Reset** restores the loaded workload, removing live additions.
-**Inject process** adds a fresh process at the current clock time, even after completion.
-Generate mixed, short, or long CPU bursts with the workload controls.
-The CPU panel and table show the state at the current tick boundary. The timeline
-shows which process ran during each interval.
-The timeline displays the most recent 500 ticks. Averages include completed processes.
+## Run locally
+
+Clone the repo or choose **Code → Download ZIP** on GitHub and extract it. Open
+`docs/index.html` in your browser. If you have Python 3, you can also run
+`python server.py` from the project folder and open [localhost](http://127.0.0.1:8000).
+On Windows, double-clicking `start_ui.bat` starts the same development server.
 
 ## Scheduling
 
